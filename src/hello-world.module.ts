@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 
 
 import { HelloWorld } from './hello-world';
+import {LazyComponent} from './lazy.component';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { HelloWorld } from './hello-world';
     CommonModule
   ],
   declarations: [
-    HelloWorld
+    HelloWorld,
+    LazyComponent
   ]
 })
 export class HelloWorldModule { }
