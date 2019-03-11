@@ -24,6 +24,7 @@
     "bundle": "webpack",
     "bundle:debug": "webpack --env.debug",
     "serve": "http-server public",
-    "start": "npm run build && npm run bundle && npm run serve"
+    "start": "npm run build && npm run bundle && npm run serve",
+    "ngcc": "ivy-ngcc"
   }
 }

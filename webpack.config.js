@@ -13,7 +13,7 @@ module.exports = function(options, args)
     {
         entry: 
         {
-            bundle: [path.join(__dirname, "lib/src/hello-world.js")]
+            bundle: [path.join(__dirname, "lib/hello-world.js")]
         },
         output:
         {
