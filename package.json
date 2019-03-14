@@ -15,7 +15,7 @@
     "@angular/router": "8.0.0-beta.7",
     "numeral": "2.0.6",
     "@asseco/common": "1.0.1",
-    "@ng/common": "5.0.4",
+    "@ng/common": "next",
     "@ng/select": "next",
     "positions": "1.6.2",
     "extend": "3.0.2",
