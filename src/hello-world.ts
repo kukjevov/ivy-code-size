@@ -1,12 +1,4 @@
-import {
-  Component,
-  ɵrenderComponent as renderComponent,
-  ɵComponentType as ComponentType,
-  ChangeDetectorRef,
-  ChangeDetectionStrategy,
-  ViewContainerRef,
-  ɵRender3ComponentFactory as Render3ComponentFactory
-} from '@angular/core'
+import {Component, ChangeDetectionStrategy, ViewContainerRef, ComponentFactoryResolver} from '@angular/core'
 import {LazyComponent} from './lazy.component';
 
 
@@ -14,7 +6,7 @@ import {LazyComponent} from './lazy.component';
   selector: 'hello-world',
   template: `
     <div *ngIf="cond">toto je div</div>
-    <button (click)="cond = !cond;invalidateVisuals();">click</button>
+    <button (click)="cond = !cond">click</button>
     <h3>Hello {{name}}</h3>
     <button (click)="loadComponent()">load</button>
   `,
@@ -23,23 +15,15 @@ import {LazyComponent} from './lazy.component';
 export class HelloWorld {
   name = 'World!'
   cond: boolean = true;
-  constructor(private _changeDetector:ChangeDetectorRef,
-              private _viewContainer: ViewContainerRef)
+  constructor(private _viewContainer: ViewContainerRef,
+      private _componentFactoryResolver: ComponentFactoryResolver)
   {
   }  
-  invalidateVisuals()
-  {
-    this._changeDetector.detectChanges();
-  }
 
   async loadComponent()
   {
     let {LazyComponent} = await import('./lazy.component');
-    let lazyComp = LazyComponent as ComponentType<LazyComponent>;
-    let factory = new Render3ComponentFactory(lazyComp.ngComponentDef);
+    let factory = this._componentFactoryResolver.resolveComponentFactory(LazyComponent);
     this._viewContainer.createComponent(factory);
   }
 }
-
-
-renderComponent(HelloWorld as ComponentType<HelloWorld>, {});

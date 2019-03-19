@@ -13,7 +13,7 @@ module.exports = function(options, args)
     {
         entry: 
         {
-            bundle: [path.join(__dirname, "lib/hello-world.js")]
+            bundle: [path.join(__dirname, "lib/entry.js")]
         },
         output:
         {
@@ -24,28 +24,6 @@ module.exports = function(options, args)
         mode: 'production',
         devtool: 'source-map',
         target: 'web',
-        optimization: 
-        {
-            minimizer: [new UglifyJsPlugin(
-            {
-                sourceMap: true,
-                uglifyOptions: 
-                {
-                    mangle: true,
-                    compress: 
-                    {
-                        global_defs: 
-                        {
-                            'ngDevMode': false,
-                        },
-                        keep_fargs: false,
-                        passes: 3,
-                        pure_getters: true,
-                        unsafe: true,
-                    }
-                }
-            })]
-        },
         resolve:
         {
             extensions: ['.js'],
