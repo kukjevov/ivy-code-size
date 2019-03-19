@@ -2,24 +2,25 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {CommonModule} from '@angular/common';
 
-
-import { HelloWorld } from './hello-world';
-import {LazyComponent} from './lazy.component';
+import {HelloWorld} from './hello-world';
 
 
-@NgModule({
+@NgModule(
+{
   imports:
   [
     CommonModule,
     BrowserModule
   ],
-  declarations: [
-    HelloWorld,
-    LazyComponent
+  declarations: 
+  [
+    HelloWorld
   ],
   bootstrap:
   [
     HelloWorld
   ]
 })
-export class HelloWorldModule { }
+export class HelloWorldModule 
+{
+}

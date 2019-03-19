@@ -1,4 +1,4 @@
-import {Component, ChangeDetectionStrategy, ChangeDetectorRef} from "@angular/core";
+import {Component, ChangeDetectionStrategy} from "@angular/core";
 
 @Component(
 {
@@ -12,14 +12,8 @@ export class LazyComponent
 {
     cond = false;
 
-    constructor(private _changeDetector: ChangeDetectorRef)
-    {
-    }
-
     toggle()
     {
         this.cond = !this.cond;
-        console.log('cond');
-        this._changeDetector.detectChanges();
     }
 }
