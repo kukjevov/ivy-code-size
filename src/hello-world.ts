@@ -1,4 +1,5 @@
-import {Component, ChangeDetectionStrategy, ViewContainerRef, ComponentFactoryResolver} from '@angular/core'
+import {Component, ChangeDetectionStrategy, ViewContainerRef, ComponentFactoryResolver, ɵNgModuleFactory as NgModuleFactory, Injector} from '@angular/core'
+import {SelectModule} from './sel/select.module';
 
 
 @Component({
@@ -15,7 +16,8 @@ export class HelloWorld {
   name = 'World!'
   cond: boolean = true;
   constructor(private _viewContainer: ViewContainerRef,
-              private _componentFactoryResolver: ComponentFactoryResolver)
+              private _componentFactoryResolver: ComponentFactoryResolver,
+              private _injector: Injector)
   {
   }  
 
@@ -29,8 +31,15 @@ export class HelloWorld {
     let factory2 = this._componentFactoryResolver.resolveComponentFactory(Lazy2Component);
     this._viewContainer.createComponent(factory2);
 
+    var fac = new NgModuleFactory(SelectModule);
+    
     let {SelectComponent} = await import('./sel/select.component');
-    let factoryselect = this._componentFactoryResolver.resolveComponentFactory(SelectComponent);
+    
+    //with module providers
+    let factoryselect = fac.create(this._injector).componentFactoryResolver.resolveComponentFactory(SelectComponent);
+
+    //no module providers
+    // let factoryselect = this._componentFactoryResolver.resolveComponentFactory(SelectComponent);
     this._viewContainer.createComponent(factoryselect);
   }
 }

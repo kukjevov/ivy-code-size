@@ -1,7 +1,8 @@
-import {NgModule} from '@angular/core';
+import {NgModule, ValueProvider} from '@angular/core';
 import {NgSelectModule} from '@ng/select';
 
 import {SelectComponent} from './select.component';
+import {ProvideClass} from '../provider';
 
 
 
@@ -14,6 +15,17 @@ import {SelectComponent} from './select.component';
   declarations: 
   [
     SelectComponent
+  ],
+  providers:
+  [
+    <ValueProvider>
+    {
+      provide: ProvideClass,
+      useValue:
+      {
+        value: "my select module value"
+      }
+    }
   ]
 })
 export class SelectModule 

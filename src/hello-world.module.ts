@@ -24,3 +24,5 @@ import {HelloWorld} from './hello-world';
 export class HelloWorldModule 
 {
 }
+
+console.log(HelloWorldModule);
