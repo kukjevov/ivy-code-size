@@ -2,7 +2,6 @@ var webpack = require('webpack'),
     path = require('path'),
     CompressionPlugin = require("compression-webpack-plugin"),
     BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin,
-    UglifyJsPlugin = require('uglifyjs-webpack-plugin'),
     rxPaths = require('rxjs/_esm5/path-mapping');
 
 module.exports = function(options, args)
@@ -21,7 +20,7 @@ module.exports = function(options, args)
             filename: '[name].js',
             chunkFilename: `[name].js`
         },
-        mode: 'production',
+        mode: 'development',
         devtool: 'source-map',
         target: 'web',
         resolve:

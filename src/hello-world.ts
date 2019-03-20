@@ -29,8 +29,8 @@ export class HelloWorld {
     let factory2 = this._componentFactoryResolver.resolveComponentFactory(Lazy2Component);
     this._viewContainer.createComponent(factory2);
 
-    // let {SelectComponent} = await import('./sel/select.component');
-    // let factoryselect = this._componentFactoryResolver.resolveComponentFactory(SelectComponent);
-    // this._viewContainer.createComponent(factoryselect);
+    let {SelectComponent} = await import('./sel/select.component');
+    let factoryselect = this._componentFactoryResolver.resolveComponentFactory(SelectComponent);
+    this._viewContainer.createComponent(factoryselect);
   }
 }
