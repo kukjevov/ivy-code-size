@@ -5,6 +5,15 @@ import {SelectModule} from './sel/select.module';
 @Component({
   selector: 'hello-world',
   template: `
+    <div>
+      <a routerLink="/">default</a>&nbsp;
+      <a routerLink="/static">static</a>&nbsp;
+      <a routerLink="/lazy">lazy</a>
+    </div>
+    <div style="font-weight: bold;">
+      <div>routed</div>
+      <router-outlet></router-outlet>
+    </div>
     <div *ngIf="cond">toto je div</div>
     <button (click)="cond = !cond">click</button>
     <h3>Hello {{name}}</h3>
