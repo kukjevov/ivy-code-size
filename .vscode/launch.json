@@ -8,9 +8,12 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/node_modules/@angular/compiler-cli/src/ngcc/main-ngcc.js",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/node_modules/@angular/compiler-cli/ngcc/main-ngcc.js",
             "args": 
             [
+                "-l",
+                "debug"
             ]
         }
     ]
